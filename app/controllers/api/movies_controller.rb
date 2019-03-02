@@ -5,6 +5,18 @@ class Api::MoviesController < ApplicationController
     render "index.json.jbuilder"
   end
 
-  
+  def show
+    movie_id = params[:id]
+    @movie = Movie.find_by(id:movie_id)
+    render 'show.json.jbuilder'
+  end
 
+  def create
+    @movie = Movie.new(
+      title: params[:input_title],
+      runtime: params[:input_runtime]
+      )
+    @movie.save
+    render 'show.json.jbuilder'
+  end
 end
