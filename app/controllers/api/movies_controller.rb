@@ -30,6 +30,11 @@ class Api::MoviesController < ApplicationController
     render 'show.json.jbuilder'
   end
 
-
+  def destroy
+    movie_id = params[:id]
+    @movie = Movie.find_by[id:movie_id]
+    @movie.destroy
+    render 'show.json.jbuilder'
+  end
 
 end
