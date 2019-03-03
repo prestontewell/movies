@@ -8,9 +8,9 @@ Rails.application.routes.draw do
   # end
   namespace :api do
     get '/movies' => 'movies#index'
-    post '/movies' => 'movies#new'
+    post '/movies' => 'movies#create'
     get '/movies/:id' => 'movies#show'
     patch '/movies/:id' => 'movies#update'
-    # delete '/movies/:id' => 'movies#destroy'
+    delete '/movies/:id' => 'movies#destroy'
   end
 end
